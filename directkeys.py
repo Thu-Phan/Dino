@@ -1,12 +1,15 @@
-
 import ctypes
 import time
 
 SendInput = ctypes.windll.user32.SendInput
 
-#space_pressed=0x39
-space_pressed=0xC8
+#up, down, left, right keycodes in hexadecimal
+up_pressed=0xC8
 down_pressed=0xD0
+left_pressed=0xCB
+right_pressed=0xCD
+
+
 
 # C struct redefinitions 
 PUL = ctypes.POINTER(ctypes.c_ulong)
@@ -57,16 +60,22 @@ def ReleaseKey(hexKeyCode):
 
 
 if __name__ == '__main__':
-    # PressKey(0x39)
-    # time.sleep(1)
-    # ReleaseKey(0x39)
-    # time.sleep(1)
-    PressKey(space_pressed)
+    PressKey(up_pressed)
     time.sleep(1)
-    ReleaseKey(space_pressed)
+    ReleaseKey(up_pressed)
     time.sleep(1)
 
     PressKey(down_pressed)
     time.sleep(1)
     ReleaseKey(down_pressed)
+    time.sleep(1)
+
+    PressKey(left_pressed)
+    time.sleep(1)
+    ReleaseKey(left_pressed)
+    time.sleep(1)
+
+    PressKey(right_pressed)
+    time.sleep(1)
+    ReleaseKey(right_pressed)
     time.sleep(1)
